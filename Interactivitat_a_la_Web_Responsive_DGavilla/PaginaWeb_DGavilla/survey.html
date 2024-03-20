@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+    <title>VideoGameShop</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .comentario {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img class="logo" src="Logo.png" alt="Logo">
+      	<nav class="navBar">
+            <a class="navitem" style="color: white;" href="main.html">Shop</a>
+            <a class="navitem" style="color: white;" href="Profile.html">Profile</a>
+            <a class="navitem" style="color: burlywood;"  href="Support.html">Support</a>
+        </nav>
+    </header>
+
+    <section class="surveySection">
+        <h2>Encuesta de satisfacción</h2>
+        <form action="#" method="post" id="surveyForm">
+            <label for="facilidad">¿Qué tan fácil te resultó navegar por nuestra tienda de videojuegos?</label><br>
+            <select id="facilidad" name="facilidad" required onchange="mostrarComentario('facilidad')">
+                <option value="" disabled selected>Selecciona una opción</option>
+                <option value="5">Muy fácil</option>
+                <option value="4">Fácil</option>
+                <option value="3">Neutral</option>
+                <option value="2">Difícil</option>
+                <option value="1">Muy difícil</option>
+            </select>
+            <textarea id="comentarioFacilidad" class="comentario" name="comentarioFacilidad" rows="4" cols="50" placeholder="¿Por qué estás insatisfecho?"></textarea><br><br>
+
+            <label for="variedad">¿Qué tan satisfecho estás con la variedad de juegos disponibles?</label><br>
+            <select id="variedad" name="variedad" required onchange="mostrarComentario('variedad')">
+                <option value="" disabled selected>Selecciona una opción</option>
+                <option value="5">Muy satisfecho</option>
+                <option value="4">Satisfecho</option>
+                <option value="3">Neutral</option>
+                <option value="2">Insatisfecho</option>
+                <option value="1">Muy insatisfecho</option>
+            </select>
+            <textarea id="comentarioVariedad" class="comentario" name="comentarioVariedad" rows="4" cols="50" placeholder="¿Por qué estás insatisfecho?"></textarea><br><br>
+
+            <label for="precio">¿Qué tan satisfecho estás con los precios de nuestros juegos?</label><br>
+            <select id="precio" name="precio" required onchange="mostrarComentario('precio')">
+                <option value="" disabled selected>Selecciona una opción</option>
+                <option value="5">Muy satisfecho</option>
+                <option value="4">Satisfecho</option>
+                <option value="3">Neutral</option>
+                <option value="2">Insatisfecho</option>
+                <option value="1">Muy insatisfecho</option>
+            </select>
+            <textarea id="comentarioPrecio" class="comentario" name="comentarioPrecio" rows="4" cols="50" placeholder="¿Por qué estás insatisfecho?"></textarea><br><br>
+
+            <label for="atencion">¿Qué tan satisfecho estás con la atención al cliente?</label><br>
+            <select id="atencion" name="atencion" required onchange="mostrarComentario('atencion')">
+                <option value="" disabled selected>Selecciona una opción</option>
+                <option value="5">Muy satisfecho</option>
+                <option value="4">Satisfecho</option>
+                <option value="3">Neutral</option>
+                <option value="2">Insatisfecho</option>
+                <option value="1">Muy insatisfecho</option>
+            </select>
+            <textarea id="comentarioAtencion" class="comentario" name="comentarioAtencion" rows="4" cols="50" placeholder="¿Por qué estás insatisfecho?"></textarea><br><br>
+
+            <!-- Campo de texto para comentarios adicionales -->
+            <label for="comentario">Comentarios adicionales (opcional):</label><br>
+            <textarea id="comentarioGeneral" name="comentarioGeneral" rows="4" cols="50"></textarea><br><br>
+
+            <input type="submit" value="Enviar">
+        </form>
+    </section>
+
+    <script>
+        function mostrarComentario(preguntaId) {
+            var seleccion = document.getElementById(preguntaId).value;
+            var comentarioId = "comentario" + preguntaId.charAt(0).toUpperCase() + preguntaId.slice(1);
+            var comentario = document.getElementById(comentarioId);
+            if (seleccion <= 2) {
+                comentario.style.display = "block";
+                comentario.setAttribute("required", true);
+            } else {
+                comentario.style.display = "none";
+                comentario.removeAttribute("required");
+            }
+        }
+
+        document.getElementById("surveyForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevenir el envío automático del formulario
+            
+            // Aquí puedes agregar el código para enviar los datos del formulario a través de AJAX o cualquier otra forma que desees
+            alert("¡Gracias por tu opinión!");
+            document.getElementById("surveyForm").reset(); // Limpiar el formulario después de enviar
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Definición de metadatos -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soporte - VideoGameShop</title>
+    <!-- Enlace al archivo de estilos -->
+    <link rel="stylesheet" href="style.css">
+
+    <script>
+        // Función para validar el formulario antes de enviarlo
+        function validarFormulario(event) {
+            event.preventDefault(); // Prevenir el envío automático del formulario
+            
+            // Obtener los valores de los campos del formulario
+            var nombre = document.getElementById("nombre").value;
+            var email = document.getElementById("email").value;
+            var mensaje = document.getElementById("mensaje").value;
+
+            // Validar que todos los campos estén llenos
+            if (nombre == "" || email == "" || mensaje == "") {
+                alert("Por favor, completa todos los campos.");
+                return false; // Devolver false para detener el envío del formulario
+            }
+
+            // Validar el formato del correo electrónico
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert("Por favor, introduce una dirección de correo electrónico válida.");
+                return false; // Devolver false para detener el envío del formulario
+            }
+
+            // Mostrar notificación de envío exitoso
+            mostrarNotificacion();
+
+            // Enviar el formulario después de 3 segundos
+            setTimeout(function() {
+                event.target.submit(); // Enviar el formulario
+            }, 3000);
+
+            return true; // Permitir el envío del formulario
+        }
+
+        // Función para mostrar la notificación de envío exitoso
+        function mostrarNotificacion() {
+            var notificacion = document.getElementById("notificacion");
+            notificacion.style.display = "block"; // Mostrar la notificación
+            
+            // Ocultar la notificación después de 3 segundos
+            setTimeout(function() {
+                notificacion.style.display = "none"; // Ocultar la notificación
+            }, 3000); 
+        }
+    </script>
+</head>
+<body>
+    <!-- Encabezado -->
+    <header>
+        <img class="logo" src="Logo.png" alt="Logo">
+        <nav class="navBar">
+            <!-- Enlaces de navegación -->
+            <a class="navitem" style="color: white;" href="main.html">Shop</a>
+            <a class="navitem" style="color: white;" href="Profile.html">Profile</a>
+            <a class="navitem" style="color: burlywood;"  href="Support.html">Support</a>
+        </nav>
+    </header>
+
+    <!-- Contenedor del formulario -->
+<!-- Contenedor de la imagen y el formulario -->
+<div class="imageAndFormContainer">
+    <!-- Imagen a la izquierda del formulario -->
+    <img src="suport.jpg" alt="Imagen de soporte">
+    <!-- Contenedor del formulario -->
+    <section class="formContainer">
+        <h2>Contacta con nosotros</h2>
+        <!-- Formulario de contacto -->
+        <form action="#" method="get" onsubmit="return validarFormulario(event)">
+            <!-- Campo de nombre -->
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required><br><br>
+            
+            <!-- Campo de correo electrónico -->
+            <label for="email">Correo electrónico:</label>
+            <input type="email" id="email" name="email" required><br><br>
+            
+            <!-- Campo de mensaje -->
+            <label for="mensaje">Mensaje:</label><br>
+            <textarea id="mensaje" name="mensaje" rows="4" cols="50" required></textarea><br><br>
+            
+            <!-- Botón de enviar -->
+            <input type="submit" value="Enviar">
+        </form>
+        <div class="surveyExplanation">
+            <p>¡Ayúdanos a mejorar! Por favor, haz nuestra <a href="survey.html">encuesta de satisfacción</a> solo te seran unos minutos.</p>
+        </div>
+    </section>
+</div>
+
+
+
+
+    <!-- Notificación de envío exitoso -->
+    <div id="notificacion" class="notification" style="display:none;">¡Mensaje enviado con éxito!</div>
+
+    <!-- Pie de página -->
+    <footer>
+        <p>&copy; 2023 VideoGameEntertainer</p>
+    </footer>
+</body>
+</html>

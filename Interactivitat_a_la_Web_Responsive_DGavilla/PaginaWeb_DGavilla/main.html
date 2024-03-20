@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+    <title>VideoGameShop</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <img class="logo" src="Logo.png" alt="Logo">
+      	<nav class="navBar">
+            <a class="navitem" style="color: burlywood;" href="main.html">Shop</a>
+            <a class="navitem" style="color: white;" href="Profile.html">Profile</a>
+            <a class="navitem" style="color: white;"  href="Support.html">Support</a>
+           
+            
+        </nav>
+    </header>
+
+    <section class="imgContainer">
+        <div class="carousel">
+            <img class="Imagecarousel" src="VRgif.gif" alt="Imagen de realidad virtual">
+            <img class="Imagecarousel" src="darksouls1.jpg" alt="Dark Souls">
+            <img class="Imagecarousel" src="sekiro.jpg" alt="Sekiro">
+            <img class="Imagecarousel" src="reddead.jpg" alt="Red Dead">
+        </div>
+        <button class="prev" onclick="prevSlide()">❮</button>
+        <button class="next" onclick="nextSlide()">❯</button>
+    </section>
+
+    <section class="gameContainer">
+        <article class="juego">
+            <img src="darksouls1.jpg" alt="Dark Souls">
+            <h2>Dark Souls 1</h2>
+            <p>Categorias: Souls-like, Dark Fantasy, RPG, Difficult y Action</p>
+            <a href="detalle.html">Más detalles</a>
+        </article>
+        <article class="juego">
+            <img src="sekiro.jpg" alt="Sekiro">
+            <h2>Sekiro</h2>
+            <p>Categorias: Souls-like, Dark Fantasy, RPG, Difficult y Action</p>
+            <a href="detalle.html">Más detalles</a>
+        </article>
+        <article class="juego">
+            <img src="reddead.jpg" alt="Red Dead">
+            <h2>Red Dead Rememption 2</h2>
+            <p>Categorias: Open World, Story Rich y Western Adventure</p>
+            <a href="detalle.html">Más detalles</a>
+        </article>
+    </section>
+
+    <button id="toggleTextButton">Más sobre nosotros</button>
+    <p id="aboutUsText" style="display: none;">Somos una pequeña tienda de videojuegos apasionada por ofrecer a nuestros clientes la mejor experiencia en juegos. Contamos con una cuidada selección de títulos para todas las plataformas y estamos siempre disponibles para ayudarte a encontrar el juego perfecto para ti. ¡Ven a visitarnos!</p>
+
+    <script>
+        const toggleTextButton = document.getElementById('toggleTextButton');
+        const aboutUsText = document.getElementById('aboutUsText');
+
+        toggleTextButton.addEventListener('click', function() {
+            if (aboutUsText.style.display === 'none') {
+                aboutUsText.style.display = 'block';
+                toggleTextButton.textContent = 'Menos sobre nosotros';
+            } else {
+                aboutUsText.style.display = 'none';
+                toggleTextButton.textContent = 'Más sobre nosotros';
+            }
+        });
+    </script>
+    
+    <script>
+        let slideIndex = 0;
+        const slides = document.querySelectorAll('.carousel img');
+        
+        function showSlides() {
+            slides.forEach(slide => slide.style.display = 'none');
+            slides[slideIndex].style.display = 'block';  
+        }
+
+        function nextSlide() {
+            slideIndex++;
+            if (slideIndex >= slides.length) {
+                slideIndex = 0;
+            }    
+            showSlides();
+        }
+
+        function prevSlide() {
+            slideIndex--;
+            if (slideIndex < 0) {
+                slideIndex = slides.length - 1;
+            }    
+            showSlides();
+        }
+
+        setInterval(nextSlide, 8000); // Change image every 8 seconds
+        showSlides();
+    </script>
+</body>
+</html>

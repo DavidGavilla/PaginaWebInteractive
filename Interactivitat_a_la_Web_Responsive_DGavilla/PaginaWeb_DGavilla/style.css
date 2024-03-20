@@ -1,0 +1,260 @@
+/* Estilos generales de reset */
+body, h1, h2, h3, p { 
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilo general del cuerpo de la página */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    color: #333;
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+/* Estilo para la sección de encabezado */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estilo para la sección de pie de página */
+footer {
+    margin-top: 200px;
+    position: sticky;
+    top: 100%;
+}
+
+/* Estilo para el logotipo */
+.logo {
+    max-width: 100%;
+    height: auto;
+    padding: 15px;
+}
+
+/* Estilo para la barra de navegación */
+.navBar {
+    list-style: none;
+    padding: 10px 0;
+    text-align: center;
+}
+
+/* Estilo para los elementos de la barra de navegación */
+.navitem {
+    margin: 10px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+}
+
+/* Estilo para el contenedor de imágenes */
+.imgContainer {
+    width: 95%;
+    text-align: center;
+    margin: 20px 0;
+    alt: unset;
+}
+
+.carousel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    max-width: 800px;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.Imagecarousel {
+    display: flex;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    object-position: center;
+
+}
+
+/* Contenedor de juegos */
+.gameContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 20px;
+}
+
+/* Estilo de cada juego */
+.juego {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin: 10px;
+    text-align: center;
+    width: 100%;
+    max-width: 300px;
+}
+
+.juego img {
+    width: 275px;
+    height: 150px;
+    alt: unset;
+}
+
+.juego h2 {
+    font-size: 1.5rem;
+    margin: 10px 0;
+}
+
+.juego p {
+    font-size: 1rem;
+}
+
+.juego a {
+    display: inline-block;
+    padding: 5px;
+}
+
+#TitolJoc {
+    text-align: center;
+}
+
+/* Estilo para la notificación */
+.notification {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+    display: none;
+}
+
+/* Estilo para el contenedor de la imagen y el formulario */
+.imageAndFormContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.imageAndFormContainer img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+@media (min-width: 768px) {
+    .imageAndFormContainer {
+        flex-direction: row;
+    }
+
+    .imageAndFormContainer img {
+        width: 50%;
+        margin-bottom: 0;
+    }
+
+    .formContainer {
+        width: 50%;
+        padding-left: 20px;
+    }
+}
+
+/* Consultas de medios para diferentes tamaños de pantalla */
+@media (max-width: 768px) {
+    .navitem {
+        margin: 5px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        max-width: 80%;
+    }
+
+    .navBar {
+        flex-direction: column;
+        padding: 0;
+    }
+
+    .navitem {
+        margin: 10px 0;
+        font-size: 14px;
+    }
+
+    .gameContainer {
+        margin: 10px;
+    }
+
+    .juego {
+        width: 90%;
+    }
+}
+
+#toggleTextButton {
+    display: block;
+    margin: 20px auto; /* Centrar horizontalmente */
+    padding: 10px 20px; /* Aumentar el tamaño */
+    font-size: 16px; /* Aumentar el tamaño del texto */
+    cursor: pointer;
+}
+
+/* Estilos para el formulario de encuesta */
+.surveySection {
+    margin: 20px auto;
+    max-width: 600px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.surveySection h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.surveySection label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.surveySection input[type="radio"] {
+    margin-right: 10px;
+}
+
+.surveySection textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.surveySection .commentSection {
+    display: none; /* Ocultar inicialmente */
+}
+
+/* Estilos para el botón "Más sobre nosotros" */
+#toggleTextButton {
+    display: block;
+    margin: 20px auto; /* Centrar horizontalmente */
+    padding: 10px 20px; /* Aumentar el tamaño */
+    font-size: 16px; /* Aumentar el tamaño del texto */
+    cursor: pointer;
+    background-color: #4CAF50; /* Color de fondo verde */
+    color: #fff; /* Color del texto blanco */
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease; /* Transición suave del color de fondo */
+}
+
+#toggleTextButton:hover {
+    background-color: #45a049; /* Color de fondo verde oscuro al pasar el ratón */
+}
